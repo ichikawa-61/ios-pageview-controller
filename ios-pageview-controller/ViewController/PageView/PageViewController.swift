@@ -70,6 +70,15 @@ class PageViewController : UIViewController {
 //MARK:-UIPageViewControllerDelegate
 extension PageViewController: UIPageViewControllerDelegate {
 
+    func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
+
+        if let vc = pageViewController.viewControllers?.first as? PageInnerViewController {
+            print("画面遷移直前: \(vc.pageIndex)")
+        }
+
+        print("willTransitionTo pendingViewControllers: \(pendingViewControllers) ")
+    }
+
     func pageViewController(_ pageViewController: UIPageViewController,
                             didFinishAnimating finished: Bool,
                                                previousViewControllers: [UIViewController],
